@@ -1,0 +1,42 @@
+body  { background-color:pink;
+	border: 2px solid gray;
+	border-radius: 16px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1024px;
+	min-width: 256px;
+	padding-top: 8px;
+	padding-bottom: 24px;
+	padding-left: 24px;
+	padding-right: 24px;	
+}
+
+nav ul {list-style-type:none;
+	background-color: #ffddhh;
+	border: 4px solid gray;
+	border-radius: 10px;
+	padding: 16px;
+	font-family: calibri;
+	font-weight: bold;
+}
+
+nav ul li {display: inline;
+	   padding: 16px; 
+	   
+}
+
+img {display: block;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+main {background-image:url("351052-popular-website-background-2048x2048.jpg");
+}
+
+
+footer {background-color:#ffddaa;
+}
+
+#par {font-family: calibri;
+      text-align: center;
+}
