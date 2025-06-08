@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator PyScript</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+
+  <h2>Kalkulator PyScript</h2>
+
+  <label>Bilangan 1:</label><br>
+  <input id="bil1" type="number"><br><br>
+
+  <label>Bilangan 2:</label><br>
+  <input id="bil2" type="number"><br><br>
+
+  <label>Operasi:</label><br>
+  <select id="operator">
+    <option value="+">Penjumlahan</option>
+    <option value="-">Pengurangan</option>
+    <option value="*">Perkalian</option>
+    <option value="/">Pembagian</option>
+  </select><br><br>
+
+  <button id="tombol">Hitung</button>
+
+  <h3>Hasil: <span id="hasil">-</span></h3>
+
+  <!-- Tambahkan py-env agar modul pyodide bisa digunakan -->
+  <py-config>
+    packages = []
+  </py-config>
+
+  <py-script>
+from js import document
+from pyodide import create_proxy
+
+def hitung(event):
+    try:
+        bil1 = float(document.getElementById("bil1").value)
+        bil2 = float(document.getElementById("bil2").value)
+        op = document.getElementById("operator").value
+
+        if op == '+':
+            hasil = bil1 + bil2
+        elif op == '-':
+            hasil = bil1 - bil2
+        elif op == '*':
+            hasil = bil1 * bil2
+        elif op == '/':
+            hasil = bil1 / bil2 if bil2 != 0 else "Tak hingga"
+        else:
+            hasil = "Operator tidak valid"
+
+        document.getElementById("hasil").innerText = str(hasil)
+    except:
+        document.getElementById("hasil").innerText = "Error"
+
+# Hubungkan tombol ke fungsi
+tombol = document.getElementById("tombol")
+tombol.addEventListener("click", create_proxy(hitung))
+  </py-script>
+
+</body>
+</html>
