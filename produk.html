@@ -2,8 +2,58 @@
 <html>
 <head>
    <link rel="stylesheet" href="styles.css">
-   
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+  
 </head>
+
+   <body onload="brython()">
+  <h1 id="output">...</h1>
+
+  <script type="text/python">
+from browser import document
+
+document["output"].text = "Halo dari Brython!"
+
+
+# @title
+print("Pilih operasi:")
+print("1. Penjumlahan")
+print("2. Pengurangan")
+print("3. Perkalian")
+print("4. Pembagian")
+
+#meminta input dari pengguna
+pilihan=input("masukkan pilihan 1/2/3/4= ")
+
+if pilihan in ("1", "2", "3", "4" ):
+  bil1=float(input("Masukkan bilangan pertama= "))
+  bil2=float(input("Masukkan bilangan kedua= "))
+
+if pilihan == "1":
+  tambah=bil1+bil2
+  print("Hasil Penjumlahan=", tambah)
+elif pilihan =="2":
+ kurang=bil1-bil2
+ print("Hasil Pengurangan=",kurang)
+elif pilihan =="3":
+ kali=bil1*bil2
+ print("Hasil Perkalian=",kali)
+elif pilihan=="4":
+ bagi=bil1/bil2
+ print("Hasil Pembagian=",bagi)
+else:
+     print("tidak valid")
+
+
+
+
+
+
+
+
+     
+  </script>
+   
 <body>
 <header>
 <nav>
