@@ -34,7 +34,11 @@
   </py-config>
 
   <py-script>
-from js import document
+
+    import js
+js.alert("PyScript berhasil!")
+    
+    from js import document
 from pyodide import create_proxy
 
 def hitung(event):
